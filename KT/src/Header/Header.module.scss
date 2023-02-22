@@ -1,0 +1,27 @@
+.menu{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid;
+    height: 2.3rem;
+}
+.menu-chil{
+    list-style: none;
+    height: 2.3rem;
+   
+}
+.chil{
+    display: inline-block;
+    text-decoration: none;
+    height: 2.3rem;
+    color: #333;
+
+    &:hover{
+        border-bottom:3px solid rgb(0, 119, 255);
+    color: #333;
+    }
+    
+}
+.action{
+    border-bottom:3px solid rgb(0, 119, 255);
+
+}

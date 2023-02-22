@@ -1,0 +1,45 @@
+
+/* Header */
+.productTypes{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.headerContent{
+  margin: 5%;
+  padding: 5%;
+justify-content: flex-start;
+}
+
+.bigIntro{
+font-family: 'Roboto';
+font-weight: 300;
+font-size: 50px;
+margin: 5%;
+}
+.introText{
+margin: 5%;
+font-weight: 500;
+font-size: 40;
+width: 682px;
+}
+.headerButton{
+ margin-left: 5%;
+}
+.type{
+  font-weight: 500;
+}
+/* Navbar */
+.brandName{
+  font-size: 25px;
+}
+/* Styles */
+/* .popularStylesText{
+  transform: rotate(-90deg);
+} */
+/* BestSellers */
+
+/* NewProducts */
+
+/* Zara */
+
+

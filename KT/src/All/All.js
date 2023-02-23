@@ -1,30 +1,30 @@
 import React, { useState } from "react";
-import classNames from "classnames";
+import classNames from "classnames/bind";
 import styles from "./All.module.scss";
 const cx = classNames.bind(styles);
 
 const All = () => {
-      if(!localStorage.jobs){
-        localStorage.jobs = JSON.stringify([]);
-      }
-    
-    const [job, setJob] = useState("");
-    const [jobs, setJobs] = useState(() => {
-      const storageJob = JSON.parse(localStorage.getItem("jobs"));
-      console.log(storageJob);
-      return storageJob;
+  if (!localStorage.jobs) {
+    localStorage.jobs = JSON.stringify([]);
+  }
+
+  const [job, setJob] = useState("");
+  const [jobs, setJobs] = useState(() => {
+    const storageJob = JSON.parse(localStorage.getItem("jobs"));
+    console.log(storageJob);
+    return storageJob;
+  });
+
+  const handleJob = () => {
+    setJobs((prev) => {
+      const newJobs = [...prev, job];
+
+      const jsonJobs = JSON.stringify(newJobs);
+      localStorage.setItem("jobs", jsonJobs);
+      return newJobs;
     });
-
-    const handleJob = () => {
-      setJobs((prev) => {
-        const newJobs = [...prev, job];
-
-        const jsonJobs = JSON.stringify(newJobs);
-        localStorage.setItem("jobs", jsonJobs);
-        return newJobs;
-      });
-      setJob("");
-    };
+    setJob("");
+  };
 
   const [checkFirst, setCheckFirst] = useState(true);
   const [check2, setCheck2] = useState(true);
@@ -39,18 +39,20 @@ const All = () => {
     setCheck3((prev) => !prev);
   };
   return (
-    <div>
-    <div className={cx("import-info")}>
-          <input value={job} onChange={(e) => setJob(e.target.value)} />
-          <button onClick={handleJob}>Add</button>
-        
-            {jobs.map((job, index) => (
-              <div key={index}> <input type="checkbox"></input>{job}</div>
-            ))}
-        
-        
+    <>
+      <div className={cx("info")}>
+        <input value={job} onChange={(e) => setJob(e.target.value)} />
+        <button onClick={handleJob}>Add</button>
+      </div>
+      {jobs.map((job, index) => (
+        <div className={cx("content-task")} key={index}>
+          {" "}
+          <input type="checkbox"></input>
+          {job}
+        </div>
+      ))}
 
-      <div className={cx("container")}>
+      <div className={cx("content-task")}>
         <div>
           <span>
             <input type="checkbox" onChange={checkBox}></input>
@@ -61,7 +63,7 @@ const All = () => {
             <del> Do coding challenges</del>
           )}
         </div>
-        <div>
+        <div className={cx("content-task")}>
           <span>
             <input type="checkbox" onChange={checkBox2}></input>
           </span>
@@ -71,7 +73,7 @@ const All = () => {
             <del> Do coding challenges</del>
           )}
         </div>
-        <div>
+        <div className={cx("content-task")}>
           <span>
             <input type="checkbox" onChange={checkBox3}></input>
           </span>
@@ -81,9 +83,8 @@ const All = () => {
             <del> Do coding challenges</del>
           )}
         </div>
-        </div>
       </div>
-    </div>
+    </>
   );
 };
 

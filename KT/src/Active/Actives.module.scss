@@ -1,6 +1,11 @@
-.import-info {
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+}
+.info {
   display: flex;
   width: 100%;
+
   input {
     width: 100%;
     line-height: 50px;
@@ -11,5 +16,11 @@
     line-height: 50px;
     margin-left: 20px;
     border-radius: 10px;
+    background-color: rgb(81, 81, 244);
   }
+}
+.content-task {
+  width: 100%;
+
+  text-align: left;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import classNames from "classnames";
-import styles from "./Active.module.scss";
+import classNames from "classnames/bind";
+import styles from "./Actives.module.scss";
 const cx = classNames.bind(styles);
 const Active = () => {
   if (!localStorage.jobs) {
@@ -35,21 +35,21 @@ const Active = () => {
   };
 
   return (
-    <div className={cx("import")}>
-      <div className={cx("import-info")}>
+    <div >
+      <div className={cx("info")}>
         <input value={job} onChange={(e) => setJob(e.target.value)} />
         <button onClick={handleJob}>Add</button>
       </div>
       {jobs.map((job, index) => (
-        <div key={index}>
+        <div key={index} className={cx("content-task")}>
           {" "}
           <input type="checkbox"></input>
           {job}
         </div>
       ))}
 
-      <div className={cx("container")}>
-        <div>
+      <div className={cx("content-task")}>
+        <div >
           <span>
             <input type="checkbox" onChange={checkBox}></input>
           </span>{" "}
@@ -59,7 +59,7 @@ const Active = () => {
             <del> Do coding challenges</del>
           )}
         </div>
-        <div>
+        <div >
           <span>
             <input type="checkbox" onChange={checkBox2}></input>
           </span>
